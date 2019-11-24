@@ -9,6 +9,16 @@ const modalTaskInput = document.querySelector('.modal__input');
 let arrayTaskToDo = [];
 let arrayTaskFinished = [];
 
+let storedToDoList = JSON.parse(localStorage.getItem("arrayTaskToDo"));
+if(storedToDoList) {
+  arrayTaskToDo = storedToDoList;
+  toDoList.innerHTML =  handlePrintTask();
+}
+let storedDoneList = JSON.parse(localStorage.getItem("arrayTaskDone"));
+if(storedDoneList) {
+  arrayTaskFinished = storedDoneList;
+  finishedList.innerHTML = handlePrintFinishedTask();
+}
 
 function handleClickAppearModalBtn(event) {
   modal.classList.remove('hidden');
@@ -25,6 +35,7 @@ function handleClickAddTask(event) {
   else {
     arrayTaskToDo.push(newTaskToAdd);
     toDoList.innerHTML =  handlePrintTask();
+    localStorage.setItem("arrayTaskToDo", JSON.stringify(arrayTaskToDo));
   }
 }
 
@@ -46,9 +57,11 @@ function handleClickCheckbox(event) {
     const taskFinished = checkboxClicked.parentNode;
     const taskFinishedId = taskFinished.id;
     const deletedTask = arrayTaskToDo.splice(taskFinishedId, 1);
-    arrayTaskFinished.push(deletedTask);
+    arrayTaskFinished.push(deletedTask[0]);
     toDoList.innerHTML =  handlePrintTask();
     finishedList.innerHTML =  handlePrintFinishedTask();
+    localStorage.setItem("arrayTaskToDo", JSON.stringify(arrayTaskToDo));
+    localStorage.setItem("arrayTaskDone", JSON.stringify(arrayTaskFinished));
   }
   else {}
 }
@@ -70,11 +83,12 @@ function handleClickDoneCheckbox(event) {
   if(checkboxClicked.checked) {
     const taskIsNotFinished = checkboxClicked.parentNode;
     const taskIsNotFinishedId = taskIsNotFinished.id.replace("done-", "");
-    console.log('soy el id del task not finished', taskIsNotFinishedId);
     const deletedFinishedTask = arrayTaskFinished.splice(taskIsNotFinishedId, 1);
-    arrayTaskToDo.push(deletedFinishedTask);
+    arrayTaskToDo.push(deletedFinishedTask[0]);
     toDoList.innerHTML =  handlePrintTask();
     finishedList.innerHTML =  handlePrintFinishedTask();
+    localStorage.setItem("arrayTaskToDo", JSON.stringify(arrayTaskToDo));
+    localStorage.setItem("arrayTaskDone", JSON.stringify(arrayTaskFinished));
   }
   else {}
 }
