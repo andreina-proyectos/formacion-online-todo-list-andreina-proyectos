@@ -7,6 +7,7 @@ const modalAddTaskButton = document.querySelector('.modal__button');
 const modal = document.querySelector('.page__modal');
 const modalTaskInput = document.querySelector('.modal__input');
 let arrayTaskToDo = [];
+let arrayTaskFinished = [];
 
 
 function handleClickAppearModalBtn(event) {
@@ -24,14 +25,38 @@ function handleClickAddTask(event) {
 function handlePrintTask() {
   const result = arrayTaskToDo.map((task, index) => {
     return (
-      `<li className="list-to-do__task">
-        <input type="checkbox" name=${task} id=${index}/>
+      `<li id=${index} className="list-to-do__task">
+        <input onclick="handleClickCheckbox(event)" type="checkbox" name=${task}/>
         ${task}
       </li>`
     )
   })
-  console.log(result)
   return result.join("")
+}
+
+function handleClickCheckbox(event) {
+  const checkboxClicked = event.currentTarget;
+  if(checkboxClicked.checked) {
+    const taskFinished = checkboxClicked.parentNode;
+    const taskFinishedId = taskFinished.id;
+    const deletedTask = arrayTaskToDo.splice(taskFinishedId, 1);
+    arrayTaskFinished.push(deletedTask);
+    toDoList.innerHTML =  handlePrintTask();
+    finishedList.innerHTML =  handlePrintFinishedTask();
+  }
+  else {}
+}
+
+function handlePrintFinishedTask() {
+  const arrayResult = arrayTaskFinished.map((task, index) => {
+    return (
+      `<li id=done-${index} className="list-finished__task">
+        <input onclick="handleClickDoneCheckbox(event)" type="checkbox" name=${task}/>
+        ${task}
+      </li>`
+    )
+  })
+  return arrayResult;
 }
 
 //listeners
