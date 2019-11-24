@@ -44,7 +44,7 @@ function handlePrintTask() {
     return (
       `<li id=${index} className="list-to-do__task">
         <input onclick="handleClickCheckbox(event)" type="checkbox" name=${task}/>
-        ${task}
+        <label for="${index}">${task}</label>
       </li>`
     )
   })
