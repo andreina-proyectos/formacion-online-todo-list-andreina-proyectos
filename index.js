@@ -5,17 +5,18 @@ const toDoList = document.querySelector('.main__list-to-do');
 const finishedList = document.querySelector('.main__list-finished');
 const modalAddTaskButton = document.querySelector('.modal__button');
 const modal = document.querySelector('.page__modal');
+const modalTaskInput = document.querySelector('.modal__input');
 let arrayTaskToDo = [];
 
 
 function handleClickAppearModalBtn(event) {
   modal.classList.remove('hidden');
+  modalTaskInput.value = "";
 }
 
 function handleClickAddTask(event) {
   modal.classList.add('hidden');
-  const modalTaskInput = document.querySelector('.modal__input');
-  const newTaskToAdd = modalTaskInput.value;
+  let newTaskToAdd = modalTaskInput.value;
   arrayTaskToDo.push(newTaskToAdd);
   toDoList.innerHTML =  handlePrintTask();
 }
