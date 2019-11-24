@@ -79,6 +79,28 @@ function handleClickDoneCheckbox(event) {
   else {}
 }
 
+function setCurrentDate () {
+  const today = new Date();
+  const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+  const dayOfWeek = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
+  const dayWeekNumber = today.getDay();
+  const monthNumber = today.getMonth();
+  const currentYear = today.getFullYear();
+  const curentMonth = months[monthNumber];
+  const currentDayOfWeek = dayOfWeek[dayWeekNumber];
+  const currentDay = today.getDate();
+
+  const dateDay = document.querySelector('.header__date__day');
+  const dateYearAndMonth = document.querySelector('.header__date__year');
+  const dateWeek = document.querySelector('.date__day-week');
+
+  dateDay.innerHTML = currentDay;
+  dateYearAndMonth.innerHTML = `${curentMonth}, ${currentYear}`;
+  dateWeek.innerHTML = currentDayOfWeek;
+}
+
+setCurrentDate();
+
 //listeners
 buttonToAddTask.addEventListener('click', handleClickAppearModalBtn);
 modalAddTaskButton.addEventListener('click', handleClickAddTask);
