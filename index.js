@@ -56,7 +56,7 @@ function handlePrintFinishedTask() {
       </li>`
     )
   })
-  return arrayResult;
+  return arrayResult.join("");
 }
 
 function handleClickDoneCheckbox(event) {
