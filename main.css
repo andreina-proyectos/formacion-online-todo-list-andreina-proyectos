@@ -11,3 +11,7 @@ body {
 .hidden {
   display: none;
 }
+
+.main__list-to-do {
+  background-color: violet;
+}

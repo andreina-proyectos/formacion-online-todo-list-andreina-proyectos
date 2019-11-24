@@ -59,6 +59,20 @@ function handlePrintFinishedTask() {
   return arrayResult;
 }
 
+function handleClickDoneCheckbox(event) {
+  const checkboxClicked = event.currentTarget;
+  if(checkboxClicked.checked) {
+    const taskIsNotFinished = checkboxClicked.parentNode;
+    const taskIsNotFinishedId = taskIsNotFinished.id.replace("done-", "");
+    console.log('soy el id del task not finished', taskIsNotFinishedId);
+    const deletedFinishedTask = arrayTaskFinished.splice(taskIsNotFinishedId, 1);
+    arrayTaskToDo.push(deletedFinishedTask);
+    toDoList.innerHTML =  handlePrintTask();
+    finishedList.innerHTML =  handlePrintFinishedTask();
+  }
+  else {}
+}
+
 //listeners
 buttonToAddTask.addEventListener('click', handleClickAppearModalBtn);
 modalAddTaskButton.addEventListener('click', handleClickAddTask);
