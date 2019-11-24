@@ -3,20 +3,36 @@
 const buttonToAddTask = document.querySelector('.button__add-task');
 const toDoList = document.querySelector('.main__list-to-do');
 const finishedList = document.querySelector('.main__list-finished');
-const modal = document.querySelector('.page__modal');
-const modalTaskInput = document.querySelector('.modal__input');
 const modalAddTaskButton = document.querySelector('.modal__button');
+const modal = document.querySelector('.page__modal');
+let arrayTaskToDo = [];
 
 
-function handleClickAddButton(event) {
+function handleClickAppearModalBtn(event) {
   modal.classList.remove('hidden');
 }
 
-function handleClickModalAddBtn(event) {
+function handleClickAddTask(event) {
+  modal.classList.add('hidden');
+  const modalTaskInput = document.querySelector('.modal__input');
   const newTaskToAdd = modalTaskInput.value;
-  console.log(newTaskToAdd);
+  arrayTaskToDo.push(newTaskToAdd);
+  toDoList.innerHTML =  handlePrintTask();
+}
+
+function handlePrintTask() {
+  const result = arrayTaskToDo.map((task, index) => {
+    return (
+      `<li className="list-to-do__task">
+        <input type="checkbox" name=${task} id=${index}/>
+        ${task}
+      </li>`
+    )
+  })
+  console.log(result)
+  return result.join("")
 }
 
 //listeners
-buttonToAddTask.addEventListener('click', handleClickAddButton);
-modalAddTaskButton.addEventListener('click', handleClickModalAddBtn);
+buttonToAddTask.addEventListener('click', handleClickAppearModalBtn);
+modalAddTaskButton.addEventListener('click', handleClickAddTask);
