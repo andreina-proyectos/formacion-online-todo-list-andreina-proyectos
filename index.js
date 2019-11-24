@@ -18,8 +18,14 @@ function handleClickAppearModalBtn(event) {
 function handleClickAddTask(event) {
   modal.classList.add('hidden');
   let newTaskToAdd = modalTaskInput.value;
-  arrayTaskToDo.push(newTaskToAdd);
-  toDoList.innerHTML =  handlePrintTask();
+  if(newTaskToAdd === "") {
+    alert("Debes introducir una tarea! 😮");
+    modal.classList.remove('hidden');
+  }
+  else {
+    arrayTaskToDo.push(newTaskToAdd);
+    toDoList.innerHTML =  handlePrintTask();
+  }
 }
 
 function handlePrintTask() {
