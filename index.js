@@ -30,7 +30,6 @@ function handleClickAddTask(event) {
   let newTaskToAdd = modalTaskInput.value;
   if(newTaskToAdd === "") {
     alert("Debes introducir una tarea! 😮");
-    modal.classList.remove('hidden');
   }
   else {
     arrayTaskToDo.push(newTaskToAdd);

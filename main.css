@@ -19,7 +19,7 @@ body {
 
 .page__app-wrapper {
   background-color: white;
-  width: 60%;
+  width: 75%;
   height: 70%;
 }
 
@@ -63,7 +63,7 @@ body {
 
 .page__main {
   text-align: start;
-  margin-left: 100px;
+  margin-left: 10%;
   margin-top:40px;
   height: 60%;
 }
@@ -160,8 +160,76 @@ body {
 }
 
 /* modal */
-.page__modal {}
+.page__modal {
+  position: absolute;
+  z-index:100;
+  height:150px;
+  width:300px;
+  background-color: #449E8E;
+  bottom:20%;
+  left:35%;
+  border-radius: 5px;
+}
+
+.modal__text {
+  color: white;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 200;
+}
+
+.modal__input {
+  margin:10px;
+  background-color: transparent;
+  border: .5px solid rgba(255, 255, 255, 0.514);
+  border-radius: 2px;
+  height: 30px;
+  width: 80%;
+  padding-left: 20px;
+  color:white;
+  font-size: 18px;
+}
+
+.modal__button {
+  width: 150px;
+  height: 40px;
+  background-color: transparent;
+  border-radius: 30px;
+  color:white;
+  font-size: 18px;
+  border: 2px solid white;
+  margin-top: 10px;
+}
 
 .hidden {
   display: none;
+}
+
+/* MEDIA QUERIES */
+
+@media all and (min-width: 666px) {
+  .page__app-wrapper {
+    width: 50%;
+    height: 80%;
+  }
+  .page__modal {
+    height:200px;
+    width:300px;
+    bottom:20%;
+    left:30%;
+    border-radius: 5px;
+  }
+  .modal__button {
+    margin-top: 50px;
+  }
+}
+
+@media all and (min-width: 768px) {
+  .page__app-wrapper {
+    width: 40%;
+    height: 80%;
+  }
 }
