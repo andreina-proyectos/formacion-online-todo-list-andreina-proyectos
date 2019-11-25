@@ -6,6 +6,8 @@ const finishedList = document.querySelector('.main__list-finished');
 const modalAddTaskButton = document.querySelector('.modal__button');
 const modal = document.querySelector('.page__modal');
 const modalTaskInput = document.querySelector('.modal__input');
+const pageWrapper = document.querySelector('.page__app-wrapper');
+
 let arrayTaskToDo = [];
 let arrayTaskFinished = [];
 
@@ -21,12 +23,14 @@ if(storedDoneList) {
 }
 
 function handleClickAppearModalBtn(event) {
+  pageWrapper.classList.add('disabled');
   modal.classList.remove('hidden');
   modalTaskInput.value = "";
 }
 
 function handleClickAddTask(event) {
   modal.classList.add('hidden');
+  pageWrapper.classList.remove('disabled');
   let newTaskToAdd = modalTaskInput.value;
   if(newTaskToAdd === "") {
     alert("Debes introducir una tarea! 😮");
@@ -85,7 +89,6 @@ function handleClickDoneCheckbox(event) {
   const checkboxClicked = event.currentTarget;
   if(!checkboxClicked.checked) {
     const taskIsNotFinished = checkboxClicked.parentNode.parentNode.parentNode.parentNode;
-    console.log(taskIsNotFinished);
     const taskIsNotFinishedId = taskIsNotFinished.id.replace("done-", "");
     const deletedFinishedTask = arrayTaskFinished.splice(taskIsNotFinishedId, 1);
     arrayTaskToDo.push(deletedFinishedTask[0]);

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:500,700,800,900&display=swap');
 * {
   margin:0;
   padding:0;
@@ -18,9 +19,14 @@ body {
 }
 
 .page__app-wrapper {
+  align-self: center;
   background-color: white;
   width: 75%;
-  height: 70%;
+  height: 80%;
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 10px 6px -6px #777;
+  border-radius: 5px;
 }
 
 /* header */
@@ -65,11 +71,11 @@ body {
   text-align: start;
   margin-left: 10%;
   margin-top:40px;
-  height: 60%;
+  height: 65%;
 }
 
 .list-to-do__task {
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 .container {
@@ -136,39 +142,50 @@ body {
 }
 
 .list-finished__task {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 /* section button */
 
 .page__section-button {
-  height: 20%;
+  height: 18%;
   border-top:1px solid rgba(128, 128, 128, 0.356);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .button__add-task {
-  width: 50px;
-  height: 50px;
-  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:0px;
+  width: 75px;
+  height: 75px;
   border-radius: 100%;
   background-color: white;
-  border: solid 2px #5ED4BF;
+  border: solid 3px #5ED4BF;
   color: #449E8E;
-  font-size: 30px;
+  font-size: 35px;
   font-weight: bold;
   cursor: pointer;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  padding:5px;
 }
 
 /* modal */
 .page__modal {
   position: absolute;
-  z-index:100;
+  margin-left: 40%;
+  transform: translate(-50%, -50%);
   height:150px;
   width:300px;
   background-color: #449E8E;
-  bottom:20%;
-  left:35%;
   border-radius: 5px;
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 10px 6px -6px #777;
+  opacity: 1;
 }
 
 .modal__text {
@@ -204,32 +221,43 @@ body {
   margin-top: 10px;
 }
 
+/* OTHERS  */
 .hidden {
   display: none;
 }
 
+.disabled {
+  background-color: white;
+  opacity: 0.5;
+}
+
 /* MEDIA QUERIES */
 
-@media all and (min-width: 666px) {
-  .page__app-wrapper {
-    width: 50%;
-    height: 80%;
-  }
+@media all and (min-width: 385px) {
   .page__modal {
-    height:200px;
-    width:300px;
-    bottom:20%;
-    left:30%;
-    border-radius: 5px;
+    margin-left: 30%;
   }
-  .modal__button {
-    margin-top: 50px;
+}
+
+@media all and (min-width: 410px) {
+  .page__modal {
+    margin-left: 25%;
   }
 }
 
 @media all and (min-width: 768px) {
   .page__app-wrapper {
-    width: 40%;
+    width: 35%;
     height: 80%;
+  }
+  .page__modal {
+    margin-left: 15%;
+  }
+}
+
+@media all and (min-width: 980px) {
+  .page__modal {
+    margin-left: 11%;
+    margin-top:10%;
   }
 }
