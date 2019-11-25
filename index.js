@@ -42,9 +42,11 @@ function handleClickAddTask(event) {
 function handlePrintTask() {
   const result = arrayTaskToDo.map((task, index) => {
     return (
-      `<li id=${index} className="list-to-do__task">
-        <input onclick="handleClickCheckbox(event)" type="checkbox" name=${task}/>
-        <label for="${index}">${task}</label>
+      `<li id=${index} class="list-to-do__task">
+        <label class="container">${task}
+          <input onclick="handleClickCheckbox(event)" type="checkbox" name=${task}/>
+          <span class="checkmark"></span>
+        </label>
       </li>`
     )
   })
@@ -69,9 +71,11 @@ function handleClickCheckbox(event) {
 function handlePrintFinishedTask() {
   const arrayResult = arrayTaskFinished.map((task, index) => {
     return (
-      `<li id=done-${index} className="list-finished__task">
-        <input onclick="handleClickDoneCheckbox(event)" type="checkbox" name=${task}/>
-        ${task}
+      `<li id=done-${index} class="list-finished__task">
+        <label class="container">${task}
+          <input onclick="handleClickDoneCheckbox(event)" type="checkbox" checked="checked" name=${task}/>
+          <span class="checkmark"></span>
+        </label>
       </li>`
     )
   })
