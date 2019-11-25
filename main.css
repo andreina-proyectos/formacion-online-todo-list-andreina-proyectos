@@ -71,6 +71,10 @@ body {
   margin-bottom: 5px;
 }
 
+.list-finished__task {
+  margin-bottom: 8px;
+}
+
 .container {
   position: relative;
   padding-left: 35px;
