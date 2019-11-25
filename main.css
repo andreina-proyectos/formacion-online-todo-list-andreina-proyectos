@@ -65,14 +65,11 @@ body {
   text-align: start;
   margin-left: 100px;
   margin-top:40px;
+  height: 60%;
 }
 
 .list-to-do__task {
   margin-bottom: 5px;
-}
-
-.list-finished__task {
-  margin-bottom: 8px;
 }
 
 .container {
@@ -138,9 +135,32 @@ body {
   transform: rotate(45deg);
 }
 
-
-.main__list-to-do {
+.list-finished__task {
+  margin-bottom: 8px;
 }
+
+/* section button */
+
+.page__section-button {
+  height: 20%;
+  border-top:1px solid rgba(128, 128, 128, 0.356);
+}
+
+.button__add-task {
+  width: 50px;
+  height: 50px;
+  margin-top: 20px;
+  border-radius: 100%;
+  background-color: white;
+  border: solid 2px #5ED4BF;
+  color: #449E8E;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* modal */
+.page__modal {}
 
 .hidden {
   display: none;

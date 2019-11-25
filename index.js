@@ -72,7 +72,7 @@ function handlePrintFinishedTask() {
   const arrayResult = arrayTaskFinished.map((task, index) => {
     return (
       `<li id=done-${index} class="list-finished__task">
-        <label class="container">${task}
+        <label class="container"><del>${task}<del>
           <input onclick="handleClickDoneCheckbox(event)" type="checkbox" checked="checked" name=${task}/>
           <span class="checkmark"></span>
         </label>
