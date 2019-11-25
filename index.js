@@ -55,7 +55,7 @@ function handlePrintTask() {
 function handleClickCheckbox(event) {
   const checkboxClicked = event.currentTarget;
   if(checkboxClicked.checked) {
-    const taskFinished = checkboxClicked.parentNode;
+    const taskFinished = checkboxClicked.parentNode.parentNode;
     const taskFinishedId = taskFinished.id;
     const deletedTask = arrayTaskToDo.splice(taskFinishedId, 1);
     arrayTaskFinished.push(deletedTask[0]);
@@ -84,7 +84,8 @@ function handlePrintFinishedTask() {
 function handleClickDoneCheckbox(event) {
   const checkboxClicked = event.currentTarget;
   if(!checkboxClicked.checked) {
-    const taskIsNotFinished = checkboxClicked.parentNode;
+    const taskIsNotFinished = checkboxClicked.parentNode.parentNode.parentNode.parentNode;
+    console.log(taskIsNotFinished);
     const taskIsNotFinishedId = taskIsNotFinished.id.replace("done-", "");
     const deletedFinishedTask = arrayTaskFinished.splice(taskIsNotFinishedId, 1);
     arrayTaskToDo.push(deletedFinishedTask[0]);
