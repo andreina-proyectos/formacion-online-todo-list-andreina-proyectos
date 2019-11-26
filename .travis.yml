@@ -6,3 +6,4 @@ cache:
     - node_modules
 script:
   - echo "mi primer travis"
+  - exit -1
